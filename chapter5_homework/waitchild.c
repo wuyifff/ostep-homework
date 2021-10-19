@@ -22,10 +22,12 @@ int main()
     }
     else if( pid == 0)
     {
+        sleep(1);
         printf("child exit\n");
         return 0;
     }
     printf("parent is waiting for child\n");
+    //wait for SIGCHILD
     wait(&status);
     printf("parent get the message\nparent exit\n");
     return 0;
